@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.aveva.com/NET/2008/04/Types" elementFormDefault="qualified" targetNamespace="http://schemas.aveva.com/NET/2008/04/Types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://194.2.93.194:7004/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="SearchMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Projection" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Criteria" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Options" nillable="true" type="tns:SearchOptions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchMessage" nillable="true" type="tns:SearchMessage" />
+  <xs:complexType name="SearchOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Type" type="tns:SearchType" />
+      <xs:element minOccurs="0" name="Paging" nillable="true" type="tns:SearchPaging" />
+      <xs:element minOccurs="0" name="SortDirection" type="tns:SortDirection" />
+      <xs:element minOccurs="0" name="Sorting" nillable="true" type="tns:SearchSorting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchOptions" nillable="true" type="tns:SearchOptions" />
+  <xs:simpleType name="SearchType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="XML" />
+      <xs:enumeration value="Object" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SearchType" nillable="true" type="tns:SearchType" />
+  <xs:complexType name="SearchPaging">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentPage" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchPaging" nillable="true" type="tns:SearchPaging" />
+  <xs:simpleType name="SortDirection">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ascending" />
+      <xs:enumeration value="Descending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SortDirection" nillable="true" type="tns:SortDirection" />
+  <xs:complexType name="SearchSorting">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SortBy" type="tns:SortBy" />
+      <xs:element minOccurs="0" name="SortByAttribute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SortByDataset" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SortDirection" type="tns:SortDirection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchSorting" nillable="true" type="tns:SearchSorting" />
+  <xs:simpleType name="SortBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ID" />
+      <xs:enumeration value="Description" />
+      <xs:enumeration value="Attribute" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SortBy" nillable="true" type="tns:SortBy" />
+  <xs:complexType name="SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TimeTaken" type="ser:duration" />
+      <xs:element minOccurs="0" name="XmlResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalRecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="MoreRecords" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchResult" nillable="true" type="tns:SearchResult" />
+  <xs:complexType name="ServiceError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceError" nillable="true" type="tns:ServiceError" />
+  <xs:complexType name="AddTemplateMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Template" nillable="true" type="tns:Template" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddTemplateMessage" nillable="true" type="tns:AddTemplateMessage" />
+  <xs:complexType name="Template">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="tns:TemplateIdentifier" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Projection" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Template" nillable="true" type="tns:Template" />
+  <xs:complexType name="TemplateIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Identifier">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TemplateIdentifier" nillable="true" type="tns:TemplateIdentifier" />
+  <xs:complexType name="Identifier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Context" nillable="true" type="tns:Identifier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Identifier" nillable="true" type="tns:Identifier" />
+  <xs:complexType name="ChangeIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Identifier">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeIdentifier" nillable="true" type="tns:ChangeIdentifier" />
+  <xs:complexType name="UpdateTemplateMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Template" nillable="true" type="tns:Template" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateTemplateMessage" nillable="true" type="tns:UpdateTemplateMessage" />
+  <xs:complexType name="DeleteTemplateMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Template" nillable="true" type="tns:Template" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteTemplateMessage" nillable="true" type="tns:DeleteTemplateMessage" />
+  <xs:complexType name="ArrayOfTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Template" nillable="true" type="tns:Template" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTemplate" nillable="true" type="tns:ArrayOfTemplate" />
+  <xs:complexType name="SearchTemplateMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="tns:TemplateIdentifier" />
+      <xs:element minOccurs="0" name="Criteria" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Options" nillable="true" type="tns:SearchOptions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchTemplateMessage" nillable="true" type="tns:SearchTemplateMessage" />
+</xs:schema>

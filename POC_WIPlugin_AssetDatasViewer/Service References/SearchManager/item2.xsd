@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.aveva.com/NET/2008/04/Contract" elementFormDefault="qualified" targetNamespace="http://www.aveva.com/NET/2008/04/Contract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://194.2.93.194:7004/?xsd=xsd2" namespace="http://schemas.aveva.com/NET/2008/04/Types" />
+  <xs:element name="Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.aveva.com/NET/2008/04/Types" minOccurs="0" name="message" nillable="true" type="q1:SearchMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.aveva.com/NET/2008/04/Types" minOccurs="0" name="SearchResult" nillable="true" type="q2:SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.aveva.com/NET/2008/04/Types" minOccurs="0" name="addTemplateMessage" nillable="true" type="q3:AddTemplateMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTemplateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.aveva.com/NET/2008/04/Types" minOccurs="0" name="updateTemplateMessage" nillable="true" type="q4:UpdateTemplateMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTemplateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.aveva.com/NET/2008/04/Types" minOccurs="0" name="deleteTemplateMessage" nillable="true" type="q5:DeleteTemplateMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTemplateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.aveva.com/NET/2008/04/Types" minOccurs="0" name="templateID" nillable="true" type="q6:TemplateIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.aveva.com/NET/2008/04/Types" minOccurs="0" name="GetTemplateResult" nillable="true" type="q7:Template" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.aveva.com/NET/2008/04/Types" minOccurs="0" name="GetTemplatesResult" nillable="true" type="q8:ArrayOfTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUsingTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.aveva.com/NET/2008/04/Types" minOccurs="0" name="searchMessageTemplate" nillable="true" type="q9:SearchTemplateMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUsingTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.aveva.com/NET/2008/04/Types" minOccurs="0" name="SearchUsingTemplateResult" nillable="true" type="q10:SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

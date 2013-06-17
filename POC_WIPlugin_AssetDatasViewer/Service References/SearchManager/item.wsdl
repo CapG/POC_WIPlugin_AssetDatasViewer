@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.aveva.com/NET/2008/04/Contract" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.aveva.com/NET/2008/04/Contract" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.aveva.com/NET/2008/04/Contract/Imports">
+      <xsd:import schemaLocation="http://194.2.93.194:7004/?xsd=xsd0" namespace="http://www.aveva.com/NET/2008/04/Contract" />
+      <xsd:import schemaLocation="http://194.2.93.194:7004/?xsd=xsd2" namespace="http://schemas.aveva.com/NET/2008/04/Types" />
+      <xsd:import schemaLocation="http://194.2.93.194:7004/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISearchManager_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_Search_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.aveva.com/NET/2008/04/Types" name="detail" element="q1:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_AddTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTemplate" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_AddTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_AddTemplate_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.aveva.com/NET/2008/04/Types" name="detail" element="q2:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_UpdateTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTemplate" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_UpdateTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_UpdateTemplate_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.aveva.com/NET/2008/04/Types" name="detail" element="q3:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_DeleteTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTemplate" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_DeleteTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_DeleteTemplate_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.aveva.com/NET/2008/04/Types" name="detail" element="q4:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_GetTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplate" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_GetTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_GetTemplate_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.aveva.com/NET/2008/04/Types" name="detail" element="q5:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_GetTemplates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplates" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_GetTemplates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_GetTemplates_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.aveva.com/NET/2008/04/Types" name="detail" element="q6:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_SearchUsingTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUsingTemplate" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_SearchUsingTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUsingTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISearchManager_SearchUsingTemplate_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.aveva.com/NET/2008/04/Types" name="detail" element="q7:ServiceError" />
+  </wsdl:message>
+  <wsdl:portType name="ISearchManager">
+    <wsdl:operation name="Search">
+      <wsdl:input wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/Search" message="tns:ISearchManager_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/SearchResponse" message="tns:ISearchManager_Search_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/SearchServiceErrorFault" name="ServiceErrorFault" message="tns:ISearchManager_Search_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTemplate">
+      <wsdl:input wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/AddTemplate" message="tns:ISearchManager_AddTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/AddTemplateResponse" message="tns:ISearchManager_AddTemplate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/AddTemplateServiceErrorFault" name="ServiceErrorFault" message="tns:ISearchManager_AddTemplate_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTemplate">
+      <wsdl:input wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/UpdateTemplate" message="tns:ISearchManager_UpdateTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/UpdateTemplateResponse" message="tns:ISearchManager_UpdateTemplate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/UpdateTemplateServiceErrorFault" name="ServiceErrorFault" message="tns:ISearchManager_UpdateTemplate_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTemplate">
+      <wsdl:input wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/DeleteTemplate" message="tns:ISearchManager_DeleteTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/DeleteTemplateResponse" message="tns:ISearchManager_DeleteTemplate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/DeleteTemplateServiceErrorFault" name="ServiceErrorFault" message="tns:ISearchManager_DeleteTemplate_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplate">
+      <wsdl:input wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/GetTemplate" message="tns:ISearchManager_GetTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/GetTemplateResponse" message="tns:ISearchManager_GetTemplate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/GetTemplateServiceErrorFault" name="ServiceErrorFault" message="tns:ISearchManager_GetTemplate_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplates">
+      <wsdl:input wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/GetTemplates" message="tns:ISearchManager_GetTemplates_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/GetTemplatesResponse" message="tns:ISearchManager_GetTemplates_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/GetTemplatesServiceErrorFault" name="ServiceErrorFault" message="tns:ISearchManager_GetTemplates_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsingTemplate">
+      <wsdl:input wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/SearchUsingTemplate" message="tns:ISearchManager_SearchUsingTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/SearchUsingTemplateResponse" message="tns:ISearchManager_SearchUsingTemplate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.aveva.com/NET/2008/04/Contract/ISearchManager/SearchUsingTemplateServiceErrorFault" name="ServiceErrorFault" message="tns:ISearchManager_SearchUsingTemplate_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,17 @@
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\WIExample1\obj\Debug\ResolveAssemblyReference.cache
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\WIExample1\obj\Debug\AssetDatasViewer.AssetView.resources
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\WIExample1\obj\Debug\WIExample.Resource.resources
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\WIExample1\obj\Debug\ResGen.read.1.tlog
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\WIExample1\obj\Debug\ResGen.write.1.tlog
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\WIExample1\obj\Debug\WIExample1.dll
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\WIExample1\obj\Debug\WIExample1.pdb
+C:\Users\antmeuni\AppData\Local\Apps\COMOS\COMOS Walkinside 6.2 (64 bit)\plugins\Application\POC_WIPlugin_AssetDatasViewer.dll.config
+C:\Users\antmeuni\AppData\Local\Apps\COMOS\COMOS Walkinside 6.2 (64 bit)\plugins\Application\POC_WIPlugin_AssetDatasViewer.dll
+C:\Users\antmeuni\AppData\Local\Apps\COMOS\COMOS Walkinside 6.2 (64 bit)\plugins\Application\POC_WIPlugin_AssetDatasViewer.pdb
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\ResolveAssemblyReference.cache
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\AssetDatasViewer.AssetView.resources
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\WIExample.Resource.resources
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\ResGen.read.1.tlog
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\ResGen.write.1.tlog
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.dll
+D:\CapGemini\iALM\VirtualReality\Dev\POC_WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.pdb
