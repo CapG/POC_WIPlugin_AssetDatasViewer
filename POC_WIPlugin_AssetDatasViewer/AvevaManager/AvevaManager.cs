@@ -21,30 +21,22 @@ namespace AssetDatasViewer
 
         // Defines the delegates for asynchronous calls
         private delegate AssetDatas Deleg( AssetDatas assetData );
-        private Deleg mDeleg_Scada;
-        private Deleg mDeleg_Document;
         private Deleg mDeleg_DocumentsAndScada;
 
         // Initializes the asset fields
-        private List<AssetDatas> l_AssetDatas = null;
         private AssetView _currentAssetView = null;
-
-        private IVRLabelGroup _labels = AssetDatasViewer.CurrentViewer.CreateLabelGroup( "AssetIds" );
-        private ScadaDatasDisplayer _scadaDatasDisplayer = null;
+        private ScadaLabelsManager _scadaLabelsManager;
 
         // Constructor
         public AvevaManager()
         {
             _viewer = AssetDatasViewer.CurrentViewer;
-            l_AssetDatas = new List<AssetDatas>();
-            _scadaDatasDisplayer = new ScadaDatasDisplayer();
+            _scadaLabelsManager = new ScadaLabelsManager( _viewer, "assetScadaDatas" );
         }
 
         // Destructor
         public void OnClosing()
         {
-            _scadaDatasDisplayer.OnClosing();
-            l_AssetDatas = null;
         }
 
         // Get the information about the asset and displays it
@@ -72,61 +64,6 @@ namespace AssetDatasViewer
             mDeleg_DocumentsAndScada.BeginInvoke( assetDatas, callback_DocumentsAndScada, null );
         }     
 
-        private void processScadaInformation( IAsyncResult result )
-        {
-            if( result != null )
-            {
-                AsyncResult test = ( AsyncResult )result;
-                Deleg test_delegate = ( Deleg )test.AsyncDelegate;
-                AssetDatas asset_result = test_delegate.EndInvoke( test );
-                try
-                {
-                    // Check if the label is already displayed
-                    AssetDatas assetData = l_AssetDatas.FirstOrDefault( var => var.Id == asset_result.Id );
-                    if( asset_result.ScadaDatas.Exists )
-                    {
-                        if( assetData == null )
-                        {
-                            l_AssetDatas.Add( asset_result );
-                            _scadaDatasDisplayer.AddLabel( asset_result );
-                        }
-                        else
-                        {
-                            _scadaDatasDisplayer.UpdateLabel( asset_result );
-                        }
-                        _currentAssetView.Update( asset_result );
-                    }
-                }
-                catch( InvalidOperationException e )
-                { 
-                    AssetDatasViewer.CurrentViewer.UI.ShowError( e.Message ); 
-                }
-            }
-        }
-
-        private void processDocumentInformation( IAsyncResult result )
-        {
-            if( result != null )
-            {
-                AsyncResult test = ( AsyncResult )result;
-                Deleg test_delegate = ( Deleg )test.AsyncDelegate;
-                AssetDatas asset_result = test_delegate.EndInvoke( test );
-                try
-                {
-                    AssetDatas assetData = l_AssetDatas.FirstOrDefault( var => var.Id == asset_result.Id );
-
-                    if( assetData == null )
-                        l_AssetDatas.Add( asset_result );
-
-                    _currentAssetView.Update( asset_result );
-                }
-                catch( InvalidOperationException e )
-                { 
-                    AssetDatasViewer.CurrentViewer.UI.ShowError( e.Message ); 
-                }
-            }
-        }
-
         private void buildAssetView( IAsyncResult result )
         {
             if( result != null )
@@ -137,20 +74,7 @@ namespace AssetDatasViewer
                 try
                 {
                     _currentAssetView.Update( asset_result );
-
-                    _labels.Clear();
-                    IVRLabel l = _viewer.CreateLabel(
-                            String.Format("{0}\n\nTemperature: {1}°C\nPressure: {2} bar", 
-                                asset_result.Name.Substring( asset_result.Name.IndexOf( '/' ) + 1 ),
-                                asset_result.ScadaDatas.Temperature,
-                                asset_result.ScadaDatas.Pressure),
-                            asset_result.Position,
-                            _labels
-                            );
-                    _labels.MaximumDistance = (float)12;
-                    _labels.Color = Color.LightSalmon;
-                    _labels.Transparency = ( float )0.4;
-                    //_labels.Add( l );
+                    _scadaLabelsManager.Update( asset_result );         
                 }
                 catch( InvalidOperationException e )
                 {

@@ -113,11 +113,15 @@ namespace AssetDatasViewer
             this.Invoke(( MethodInvoker )delegate
             {
                 string assetName = _assetDatas.Name.Substring( _assetDatas.Name.IndexOf( '/' ) + 1 );
+
+                labelName.Text = "Asset " + assetName; 
+
                 assetLinkToPortal.Text = "View " + assetName + " in the portal";
                 assetLinkToPortal.Links[0].LinkData = Resource.LinkUrlToAvevaByID;
-                labelName.Text = "Asset " + assetName; 
+
                 documentsTree.BeginUpdate();
                 documentsTree.Nodes.Clear();
+
                 foreach( string type in _assetDatas.Documents.Types )
                 {
                     TreeNode typeNode = documentsTree.Nodes.Add( type );
@@ -175,7 +179,6 @@ namespace AssetDatasViewer
                     _browser = ( VRBrowserForm )SDKViewer.UI.OpenForm( typeof( VRBrowserForm ) );
                     _browser.TabText = selectedNode.Text;
                     _browser.ShowUrl( version.Url );
-                    //documentsTree.Focus();
                 }
                 catch( Exception ex )
                 {

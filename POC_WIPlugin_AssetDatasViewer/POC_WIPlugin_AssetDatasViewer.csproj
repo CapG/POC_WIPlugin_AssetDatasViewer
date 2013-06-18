@@ -80,6 +80,7 @@
     <Compile Include="AssetDatas\AssetDatas.cs" />
     <Compile Include="AssetDatas\AssetDocuments.cs" />
     <Compile Include="AssetDatas\AssetScadaDatas.cs" />
+    <Compile Include="AssetDatas\ScadaLabelsManager.cs" />
     <Compile Include="AssetView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,7 +89,6 @@
     </Compile>
     <Compile Include="AvevaManager\AvevaManager.cs" />
     <Compile Include="AvevaWebService\AvevaWebServices.cs" />
-    <Compile Include="AssetDatas\ScadaDatasDisplayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
