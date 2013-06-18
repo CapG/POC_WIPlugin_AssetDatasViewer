@@ -13,7 +13,7 @@ using System.Drawing;
 
 namespace AssetDatasViewer
 {
-    public class AvevaManager
+    public class AssetViewManager
     {
         private IVRViewerSdk _viewer;
         private AvevaWebService _service;
@@ -23,7 +23,7 @@ namespace AssetDatasViewer
         private delegate AssetDatas Deleg( AssetDatas assetData );
         private Deleg mDeleg_DocumentsAndScada;      
 
-        public AvevaManager()
+        public AssetViewManager()
         {
             _viewer = AssetDatasViewer.CurrentViewer;
             _service = new AvevaWebService( "ipetest" );
@@ -42,7 +42,7 @@ namespace AssetDatasViewer
             if( _currentAssetView == null )
             {
                 _currentAssetView = ( AssetView )AssetDatasViewer.CurrentViewer.UI.OpenForm( typeof( AssetView ) );
-                _currentAssetView.FormClosing += new FormClosingEventHandler( assetView_FormClosed );
+                _currentAssetView.FormClosing += new FormClosingEventHandler( assetView_Closed );
             }
 
             mDeleg_DocumentsAndScada = new Deleg( _service.GetAssetDocumentsAndScada );
@@ -69,7 +69,7 @@ namespace AssetDatasViewer
             }
         }
 
-        private void assetView_FormClosed( object sender, EventArgs e )
+        private void assetView_Closed( object sender, EventArgs e )
         {
             _currentAssetView = null;
             _scadaLabelsManager.Clear();

@@ -44,7 +44,7 @@ namespace AssetDatasViewer
 
         private IVRSelection _selection = null;
 
-        AvevaManager _avevaManager = null;
+        AssetViewManager _avevaManager = null;
         ToolStripMenuItem m_ToolStripItem1 = null;
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace AssetDatasViewer
             if( rootarray.Length > 0 )
             {
                 Root = rootarray[0];                
-                _avevaManager = new AvevaManager();
+                _avevaManager = new AssetViewManager();
 
                 IVRSelection first = CurrentViewer.CreateSelection();
                 first.Add( Root.Manager.GetBranch( 35626 ) );
