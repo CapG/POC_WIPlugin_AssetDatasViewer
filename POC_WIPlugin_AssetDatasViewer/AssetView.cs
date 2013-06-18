@@ -81,6 +81,70 @@ namespace AssetDatasViewer
             base.OnFormClosing( e );
         }
 
+        public void Update( AssetDatas assetDatas )
+        {
+            _assetDatas = assetDatas;
+            _hasBeenFocused = false;
+            this.Invoke( ( MethodInvoker )delegate
+            {
+                string assetName = _assetDatas.Name.Substring( _assetDatas.Name.IndexOf( '/' ) + 1 );
+
+                labelName.Text = "Asset " + assetName;
+
+                assetLinkToPortal.Text = "View " + assetName + " in the portal";
+                assetLinkToPortal.Links[0].LinkData = Resource.LinkUrlToAvevaByID;
+
+                updateDocumentsTree();
+
+                if( _assetDatas.ScadaDatas.Exists )
+                {
+                    labelTemperature.Text = string.Format( Resource.Temperature, _assetDatas.ScadaDatas.Temperature );
+                    labelPressure.Text = string.Format( Resource.Pressure, _assetDatas.ScadaDatas.Pressure );
+                    panelScada.Visible = true;
+                    labelScada.Visible = true;
+                    labelTemperature.Visible = true;
+                    labelPressure.Visible = true;
+                }
+                else
+                {
+                    labelTemperature.Text = "Unable to retrieve temperature";
+                    labelPressure.Text = "Unable to retrieve pressure";
+                }
+            } );
+        }
+
+        private void updateDocumentsTree()
+        {
+            documentsTree.BeginUpdate();
+            documentsTree.Nodes.Clear();
+
+            foreach( string type in _assetDatas.Documents.Types )
+            {
+                TreeNode typeNode = documentsTree.Nodes.Add( type );
+                typeNode.Tag = "type";
+
+                foreach( Document doc in _assetDatas.Documents.DocumentsList )
+                {
+                    if( doc.Type == type )
+                    {
+                        TreeNode docNode = typeNode.Nodes.Add( doc.Name );
+                        docNode.Tag = doc;
+
+                        foreach( DocumentVersion version in doc.Versions )
+                        {
+                            string rev = !String.IsNullOrEmpty( version.Revision ) ? version.Revision : "0";
+                            TreeNode n = new TreeNode( String.Format( "{0} - Revision {1}", doc.Name, rev ) );
+                            n.Tag = version;
+                            docNode.Nodes.Add( n );
+                        }
+                    }
+                }
+            }
+            documentsTree.EndUpdate();
+        }
+
+        #region AssetView events
+
         public void documentsTree_AfterExpand( object o, TreeViewEventArgs e )
         {          
             e.Node.ImageIndex = 1 ;
@@ -104,65 +168,7 @@ namespace AssetDatasViewer
                 }
             }
 
-        }
-
-        public void Update( AssetDatas assetDatas )
-        {
-            _assetDatas = assetDatas;
-            _hasBeenFocused = false;
-            this.Invoke(( MethodInvoker )delegate
-            {
-                string assetName = _assetDatas.Name.Substring( _assetDatas.Name.IndexOf( '/' ) + 1 );
-
-                labelName.Text = "Asset " + assetName; 
-
-                assetLinkToPortal.Text = "View " + assetName + " in the portal";
-                assetLinkToPortal.Links[0].LinkData = Resource.LinkUrlToAvevaByID;
-
-                documentsTree.BeginUpdate();
-                documentsTree.Nodes.Clear();
-
-                foreach( string type in _assetDatas.Documents.Types )
-                {
-                    TreeNode typeNode = documentsTree.Nodes.Add( type );
-                    typeNode.Tag = "type";
-
-                    foreach( Document doc in _assetDatas.Documents.DocumentsList )
-                    {
-                        if( doc.Type == type )
-                        {
-                            TreeNode docNode = typeNode.Nodes.Add( doc.Name );
-                            docNode.Tag = doc;
-
-                            foreach( DocumentVersion version in doc.Versions )
-                            {
-                                string rev = !String.IsNullOrEmpty( version.Revision ) ? version.Revision : "0";
-                                TreeNode n = new TreeNode( String.Format( "{0} - Revision {1}", doc.Name, rev ) );
-                                n.Tag = version;
-                                docNode.Nodes.Add( n );
-                            }                       
-                        }                            
-                    }
-                }
-
-                documentsTree.EndUpdate();
-
-                if( _assetDatas.ScadaDatas.Exists )
-                {
-                    labelTemperature.Text = string.Format( Resource.Temperature, _assetDatas.ScadaDatas.Temperature );
-                    labelPressure.Text = string.Format( Resource.Pressure, _assetDatas.ScadaDatas.Pressure );
-                    panelScada.Visible = true;
-                    labelScada.Visible = true;
-                    labelTemperature.Visible = true;
-                    labelPressure.Visible = true;
-                }
-                else
-                {
-                    labelTemperature.Text = "Unable to retrieve temperature";
-                    labelPressure.Text = "Unable to retrieve pressure";
-                }
-            } );
-        }
+        }      
 
         private void documentsTree_MouseDoubleClick( object o, MouseEventArgs e )
         {
@@ -201,7 +207,94 @@ namespace AssetDatasViewer
             }            
         }
 
-        private void UpdateUI()
+        #endregion
+
+        #region Gamepad management
+
+        private void CreateDevice()
+        {
+            // make sure that DirectInput has been initialized
+            DirectInput dinput = new DirectInput();
+
+            // search for devices
+            foreach( DeviceInstance device in dinput.GetDevices( DeviceClass.GameController, DeviceEnumerationFlags.AttachedOnly ) )
+            {
+                // create the device
+                try
+                {
+                    _joystick = new Joystick( dinput, device.InstanceGuid );
+                    _joystick.SetCooperativeLevel( this, CooperativeLevel.Exclusive | CooperativeLevel.Foreground );
+                    break;
+                }
+                catch( DirectInputException )
+                {
+                }
+            }
+
+            if( _joystick == null )
+            {
+                //MessageBox.Show( "There are no joysticks attached to the system." );
+                return;
+            }
+
+            // acquire the device
+            _joystick.Acquire();
+
+            // set the timer to go off 12 times a second to read input
+            // NOTE: Normally applications would read this much faster.
+            // This rate is for demonstration purposes only.
+            timer.Interval = 1000 / 12;
+            timer.Start();
+        }
+
+        private void ReleaseDevice()
+        {
+            timer.Stop();
+
+            if( _joystick != null )
+            {
+                _joystick.Unacquire();
+                _joystick.Dispose();
+            }
+            _joystick = null;
+        }
+
+        private void ReadImmediateData()
+        {
+            if( _joystick.Acquire().IsFailure )
+                return;
+
+            if( _joystick.Poll().IsFailure )
+                return;
+
+            _state = _joystick.GetCurrentState();
+            if( Result.Last.IsFailure )
+                return;
+
+            updateUIAfterJoystickEvent();
+        }
+
+        private void timer_Tick( object o, EventArgs e )
+        {
+            if( _joystick.Acquire().IsFailure )
+                return;
+
+            if( _joystick.Poll().IsFailure )
+                return;
+
+            _state = _joystick.GetCurrentState();
+            if( Result.Last.IsFailure )
+                return;
+
+            updateUIAfterJoystickEvent();
+        }
+
+        private void WaitAfterJoystickEvent( int time )
+        {
+            Thread.Sleep( time );
+        }
+
+        private void updateUIAfterJoystickEvent()
         {
             if( documentsTree.Nodes.Count > 0 )
             {
@@ -270,7 +363,7 @@ namespace AssetDatasViewer
                         if( documentsTree.SelectedNode.Nodes.Count > 0 )
                         {
                             documentsTree.SelectedNode.Expand();
-                            documentsTree.SelectedNode = documentsTree.SelectedNode.Nodes[0];                           
+                            documentsTree.SelectedNode = documentsTree.SelectedNode.Nodes[0];
                             WaitAfterJoystickEvent( timeToWait );
                             return;
                         }
@@ -295,7 +388,7 @@ namespace AssetDatasViewer
                     //Button B
                     if( _state.GetButtons()[1] )
                     {
-                        
+
                         if( _browser != null )
                         {
                             _browser.Close();
@@ -304,7 +397,7 @@ namespace AssetDatasViewer
                             return;
                         }
                     }
-                    
+
                     //Button Y
                     if( _state.GetButtons()[3] )
                     {
@@ -314,91 +407,7 @@ namespace AssetDatasViewer
             }
         }   
 
-        #region Gamepad management
-        private void CreateDevice()
-        {
-            // make sure that DirectInput has been initialized
-            DirectInput dinput = new DirectInput();
-
-            // search for devices
-            foreach( DeviceInstance device in dinput.GetDevices( DeviceClass.GameController, DeviceEnumerationFlags.AttachedOnly ) )
-            {
-                // create the device
-                try
-                {
-                    _joystick = new Joystick( dinput, device.InstanceGuid );
-                    _joystick.SetCooperativeLevel( this, CooperativeLevel.Exclusive | CooperativeLevel.Foreground );
-                    break;
-                }
-                catch( DirectInputException )
-                {
-                }
-            }
-
-            if( _joystick == null )
-            {
-                //MessageBox.Show( "There are no joysticks attached to the system." );
-                return;
-            }
-
-            // acquire the device
-            _joystick.Acquire();
-
-            // set the timer to go off 12 times a second to read input
-            // NOTE: Normally applications would read this much faster.
-            // This rate is for demonstration purposes only.
-            timer.Interval = 1000 / 12;
-            timer.Start();
-        }
-
-        private void ReleaseDevice()
-        {
-            timer.Stop();
-
-            if( _joystick != null )
-            {
-                _joystick.Unacquire();
-                _joystick.Dispose();
-            }
-            _joystick = null;
-        }
-
-        private void ReadImmediateData()
-        {
-            if( _joystick.Acquire().IsFailure )
-                return;
-
-            if( _joystick.Poll().IsFailure )
-                return;
-
-            _state = _joystick.GetCurrentState();
-            if( Result.Last.IsFailure )
-                return;
-
-            UpdateUI();
-        }
-
-        private void timer_Tick( object o, EventArgs e )
-        {
-            if( _joystick.Acquire().IsFailure )
-                return;
-
-            if( _joystick.Poll().IsFailure )
-                return;
-
-            _state = _joystick.GetCurrentState();
-            if( Result.Last.IsFailure )
-                return;
-
-            UpdateUI();
-        }
-
-        private void WaitAfterJoystickEvent( int time )
-        {
-            Thread.Sleep( time );
-        }
-        #endregion        
-        
+        #endregion              
     }
 } 
 

@@ -80,7 +80,7 @@
     <Compile Include="AssetDatas\AssetDatas.cs" />
     <Compile Include="AssetDatas\AssetDocuments.cs" />
     <Compile Include="AssetDatas\AssetScadaDatas.cs" />
-    <Compile Include="AssetDatas\ScadaLabelsManager.cs" />
+    <Compile Include="ScadaLabelsManager.cs" />
     <Compile Include="AssetView.cs">
       <SubType>Form</SubType>
     </Compile>

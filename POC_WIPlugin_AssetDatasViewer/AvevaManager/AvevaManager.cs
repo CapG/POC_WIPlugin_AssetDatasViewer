@@ -16,39 +16,27 @@ namespace AssetDatasViewer
     public class AvevaManager
     {
         private IVRViewerSdk _viewer;
-
         private AvevaWebService _service;
-
-        // Defines the delegates for asynchronous calls
-        private delegate AssetDatas Deleg( AssetDatas assetData );
-        private Deleg mDeleg_DocumentsAndScada;
-
-        // Initializes the asset fields
-        private AssetView _currentAssetView = null;
+        private AssetView _currentAssetView;
         private ScadaLabelsManager _scadaLabelsManager;
 
-        // Constructor
+        private delegate AssetDatas Deleg( AssetDatas assetData );
+        private Deleg mDeleg_DocumentsAndScada;      
+
         public AvevaManager()
         {
             _viewer = AssetDatasViewer.CurrentViewer;
+            _service = new AvevaWebService( "ipetest" );
             _scadaLabelsManager = new ScadaLabelsManager( _viewer, "assetScadaDatas" );
         }
 
-        // Destructor
         public void OnClosing()
         {
         }
 
-        // Get the information about the asset and displays it
-        
+        // Get the information about the asset and displays it      
         public void ShowAsset( IVRBranch branch )
         {            
-            //AssetDatas assetDatas = l_AssetDatas.FirstOrDefault( var => var.Id == branch.ID );
-            //if( assetDatas == null )
-            //{
-            //    assetDatas = new AssetDatas( branch );
-            //}
-
             AssetDatas assetDatas = new AssetDatas( branch );
 
             if( _currentAssetView == null )
@@ -56,8 +44,6 @@ namespace AssetDatasViewer
                 _currentAssetView = ( AssetView )AssetDatasViewer.CurrentViewer.UI.OpenForm( typeof( AssetView ) );
                 _currentAssetView.FormClosing += new FormClosingEventHandler( assetView_FormClosed );
             }
-
-            _service = new AvevaWebService( "ipetest" );
 
             mDeleg_DocumentsAndScada = new Deleg( _service.GetAssetDocumentsAndScada );
             AsyncCallback callback_DocumentsAndScada = new AsyncCallback( buildAssetView );
@@ -86,6 +72,7 @@ namespace AssetDatasViewer
         private void assetView_FormClosed( object sender, EventArgs e )
         {
             _currentAssetView = null;
+            _scadaLabelsManager.Clear();
         }
     }
 }

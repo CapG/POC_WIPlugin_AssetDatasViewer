@@ -140,7 +140,7 @@ namespace AssetDatasViewer
 
     public class DocumentVersion
     {
-        //Contained by
+        //Parent
         Document _document = null;
 
         string _url = string.Empty;

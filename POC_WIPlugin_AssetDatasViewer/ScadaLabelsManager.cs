@@ -30,8 +30,9 @@ namespace AssetDatasViewer
             );
         }
 
-
-
-
+        public void Clear()
+        {
+            _labels.Clear();
+        }
     }
 }
