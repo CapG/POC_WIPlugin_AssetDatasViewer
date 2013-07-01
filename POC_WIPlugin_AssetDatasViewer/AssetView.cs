@@ -39,7 +39,6 @@ namespace AssetDatasViewer
             _ieProcessInfos = new ProcessStartInfo
             {
                 FileName = Resource.IEPath,
-                Arguments = Resource.LinkUrlToAvevaByID,
                 RedirectStandardInput = true,
                 UseShellExecute = false,
             };
@@ -92,7 +91,7 @@ namespace AssetDatasViewer
                 labelName.Text = "Asset " + assetName;
 
                 assetLinkToPortal.Text = "View " + assetName + " in the portal";
-                assetLinkToPortal.Links[0].LinkData = Resource.LinkUrlToAvevaByID;
+                _ieProcessInfos.Arguments = String.Format( @Resource.PortalAssetLink, assetName );
 
                 updateDocumentsTree();
 

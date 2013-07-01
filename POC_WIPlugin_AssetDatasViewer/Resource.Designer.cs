@@ -115,7 +115,7 @@ namespace WIExample {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à C:\Program Files\Internet Explorer\iexplore.exe.
+        ///   Recherche une chaîne localisée semblable à C:\Program Files (x86)\Internet Explorer\iexplore.exe.
         /// </summary>
         internal static string IEPath {
             get {
@@ -124,11 +124,11 @@ namespace WIExample {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à http://frparpocnuc01:1111/default.aspx.
+        ///   Recherche une chaîne localisée semblable à http://frparpocnuc01:1111/default.aspx?BookMark=true&amp;object=IPE%7C{0}&amp;ContentName=IPE%7C{0}&amp;ContentHandle=&amp;CEPane=Documents.
         /// </summary>
-        internal static string LinkUrlToAvevaByID {
+        internal static string PortalAssetLink {
             get {
-                return ResourceManager.GetString("LinkUrlToAvevaByID", resourceCulture);
+                return ResourceManager.GetString("PortalAssetLink", resourceCulture);
             }
         }
         

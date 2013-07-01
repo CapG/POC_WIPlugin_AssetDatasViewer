@@ -136,10 +136,10 @@
     <value>ipetest</value>
   </data>
   <data name="IEPath" xml:space="preserve">
-    <value>C:\Program Files\Internet Explorer\iexplore.exe</value>
+    <value>C:\Program Files (x86)\Internet Explorer\iexplore.exe</value>
   </data>
-  <data name="LinkUrlToAvevaByID" xml:space="preserve">
-    <value>http://frparpocnuc01:1111/default.aspx</value>
+  <data name="PortalAssetLink" xml:space="preserve">
+    <value>http://frparpocnuc01:1111/default.aspx?BookMark=true&amp;object=IPE%7C{0}&amp;ContentName=IPE%7C{0}&amp;ContentHandle=&amp;CEPane=Documents</value>
   </data>
   <data name="Pressure" xml:space="preserve">
     <value>Pressure: {0} bar</value>

@@ -22,3 +22,10 @@ D:\CapGemini\iALM\VirtualReality\WI\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_A
 D:\CapGemini\iALM\VirtualReality\WI\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\ResGen.write.1.tlog
 D:\CapGemini\iALM\VirtualReality\WI\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.dll
 D:\CapGemini\iALM\VirtualReality\WI\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.pdb
+D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\ResolveAssemblyReference.cache
+D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\AssetDatasViewer.AssetView.resources
+D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\WIExample.Resource.resources
+D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\ResGen.read.1.tlog
+D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\ResGen.write.1.tlog
+D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.dll
+D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.pdb
