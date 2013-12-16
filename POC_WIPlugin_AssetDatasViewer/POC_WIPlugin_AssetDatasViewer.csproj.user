@@ -3,7 +3,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <StartAction>Program</StartAction>
     <StartProgram>C:\Users\antmeuni\AppData\Local\Apps\COMOS\COMOS Walkinside 6.2 (64 bit)\WalkinsideNet2.exe</StartProgram>
-    <StartArguments>D:\CapGemini\iALM\VirtualReality\Dev\Models\ExportedModels\VRModelECE\VRModelECE.vrp</StartArguments>
+    <StartArguments>D:\[02]_Capgemini\[01]_iALM-R&amp;D\[01]_Innovation\[06]_Walkinside\Dev\Models\ExportedModels\VRModelECE\VRModelECE.vrp</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
     <PublishUrlHistory />

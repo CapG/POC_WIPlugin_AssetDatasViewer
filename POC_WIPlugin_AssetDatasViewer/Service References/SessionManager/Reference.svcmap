@@ -18,15 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://194.2.93.194:7000" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://194.2.93.194:7000/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.wsdl" MetadataType="Wsdl" ID="ff74ca2c-8f70-4e40-a363-316a68f8c70e" SourceId="1" SourceUrl="http://194.2.93.194:7000/?wsdl=wsdl0" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="383d4610-a1da-4ff0-afe9-685f4c069ddd" SourceId="1" SourceUrl="http://194.2.93.194:7000/?disco" />
-    <MetadataFile FileName="SessionManager.wsdl" MetadataType="Wsdl" ID="8457511d-8fae-496f-8108-70e5224c360a" SourceId="1" SourceUrl="http://194.2.93.194:7000/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="7897543b-a695-4c73-b05b-753e4a8446eb" SourceId="1" SourceUrl="http://194.2.93.194:7000/?xsd=xsd1" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="5a7348ba-aed0-43a1-a2b2-8cc24f1916e6" SourceId="1" SourceUrl="http://194.2.93.194:7000/?xsd=xsd0" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="4f0029b7-9934-44d9-8237-82cdc6aa2290" SourceId="1" SourceUrl="http://194.2.93.194:7000/?xsd=xsd2" />
+    <MetadataFile FileName="Contract.wsdl" MetadataType="Wsdl" ID="2e80eab8-99ef-4ff3-a066-61ceec42eb83" SourceId="1" SourceUrl="http://194.2.93.194:7000/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="74a7d7d9-3b67-4b08-8d5d-f615461db4e5" SourceId="1" SourceUrl="http://194.2.93.194:7000/mex" />
+    <MetadataFile FileName="Contract.xsd" MetadataType="Schema" ID="d0b89c42-45a2-4e96-8f85-0887457c5cba" SourceId="1" SourceUrl="http://194.2.93.194:7000/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="3568518c-9cdf-48e7-bdbe-7a5ad5195399" SourceId="1" SourceUrl="http://194.2.93.194:7000/mex" />
+    <MetadataFile FileName="Types.xsd" MetadataType="Schema" ID="bac47dab-26a2-46af-8844-31a591d049e7" SourceId="1" SourceUrl="http://194.2.93.194:7000/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

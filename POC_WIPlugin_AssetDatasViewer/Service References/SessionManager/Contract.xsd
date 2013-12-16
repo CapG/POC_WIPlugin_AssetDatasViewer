@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://www.aveva.com/NET/2008/04/Contract" elementFormDefault="qualified" targetNamespace="http://www.aveva.com/NET/2008/04/Contract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://194.2.93.194:7000/?xsd=xsd2" namespace="http://schemas.aveva.com/NET/2008/04/Types" />
+  <xs:import namespace="http://schemas.aveva.com/NET/2008/04/Types" />
   <xs:element name="CreateSession">
     <xs:complexType>
       <xs:sequence>

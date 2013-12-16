@@ -26,7 +26,7 @@ namespace AssetDatasViewer
         public AssetViewManager()
         {
             _viewer = AssetDatasViewer.CurrentViewer;
-            _service = new AvevaWebService( "ipetest" );
+            _service = new AvevaWebService( "ipe" );
             _scadaLabelsManager = new ScadaLabelsManager( _viewer, "assetScadaDatas" );
         }
 
@@ -60,11 +60,11 @@ namespace AssetDatasViewer
                 try
                 {
                     _currentAssetView.Update( asset_result );
-                    _scadaLabelsManager.Update( asset_result );         
+                    _scadaLabelsManager.Update( asset_result );
                 }
                 catch( InvalidOperationException e )
                 {
-                   AssetDatasViewer.CurrentViewer.UI.ShowError( e.Message );
+                    AssetDatasViewer.CurrentViewer.UI.ShowError( e.Message );
                 }
             }
         }

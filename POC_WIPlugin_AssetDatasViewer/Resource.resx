@@ -130,10 +130,10 @@
     <value>AdminPOCNUC01</value>
   </data>
   <data name="AvevaNetRole" xml:space="preserve">
-    <value>FRPARPOCNUC01/Administrator</value>
+    <value>FRPARPOCNUC01/Administrateur</value>
   </data>
   <data name="AvevaProject" xml:space="preserve">
-    <value>ipetest</value>
+    <value>ipe</value>
   </data>
   <data name="IEPath" xml:space="preserve">
     <value>C:\Program Files (x86)\Internet Explorer\iexplore.exe</value>

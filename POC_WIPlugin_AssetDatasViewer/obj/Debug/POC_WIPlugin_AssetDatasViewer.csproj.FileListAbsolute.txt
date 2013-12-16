@@ -29,3 +29,15 @@ D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIP
 D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\ResGen.write.1.tlog
 D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.dll
 D:\CapGemini\iALM\VirtualReality\WIPlugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.pdb
+D:\CapGemini\iALM\VirtualReality\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\AssetDatasViewer.AssetView.resources
+D:\CapGemini\iALM\VirtualReality\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\WIExample.Resource.resources
+D:\CapGemini\iALM\VirtualReality\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.dll
+D:\CapGemini\iALM\VirtualReality\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.pdb
+D:\CapGemini\iALM\VirtualReality\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.csprojResolveAssemblyReference.cache
+D:\CapGemini\iALM\VirtualReality\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.csproj.GenerateResource.Cache
+D:\[02]_Capgemini\[01]_iALM-R&D\[01]_Innovation\[06]_Walkinside\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.csprojResolveAssemblyReference.cache
+D:\[02]_Capgemini\[01]_iALM-R&D\[01]_Innovation\[06]_Walkinside\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\AssetDatasViewer.AssetView.resources
+D:\[02]_Capgemini\[01]_iALM-R&D\[01]_Innovation\[06]_Walkinside\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\WIExample.Resource.resources
+D:\[02]_Capgemini\[01]_iALM-R&D\[01]_Innovation\[06]_Walkinside\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.csproj.GenerateResource.Cache
+D:\[02]_Capgemini\[01]_iALM-R&D\[01]_Innovation\[06]_Walkinside\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.dll
+D:\[02]_Capgemini\[01]_iALM-R&D\[01]_Innovation\[06]_Walkinside\Dev\Plugins\POC_WIPlugin_AssetDatasViewer\POC_WIPlugin_AssetDatasViewer\obj\Debug\POC_WIPlugin_AssetDatasViewer.pdb

@@ -42,6 +42,7 @@ namespace AssetDatasViewer
         public static IVRViewerSdk CurrentViewer = null;
         public static IVRBranch Root = null;
 
+
         private IVRSelection _selection = null;
 
         AssetViewManager _avevaManager = null;

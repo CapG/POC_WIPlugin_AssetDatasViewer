@@ -102,10 +102,10 @@ namespace AssetDatasViewer
                             <Object>
                                 <ID/>
                                 <Characteristic>
-                                    <Name>measured pressure</Name>
+                                    <Name>LMPressure</Name>
                                 </Characteristic>
                                 <Characteristic>
-                                    <Name>measured temp</Name>
+                                    <Name>LMTemp</Name>
                                 </Characteristic>
                             </Object>
                         </Association>
@@ -351,7 +351,7 @@ namespace AssetDatasViewer
 
             foreach( XmlNode node in xmldoc.GetElementsByTagName( "Association" ) )
             {
-                if( node.FirstChild.FirstChild.InnerText.Contains( "M Dataset" ) )
+                if( node.FirstChild.FirstChild.InnerText.Contains( "ScadaDatas" ) )
                 {
                     scadaDatas.Add( "pressure", node.OwnerDocument.GetElementsByTagName( "Value" )[0].InnerText );
                     scadaDatas.Add( "temperature", node.OwnerDocument.GetElementsByTagName( "Value" )[1].InnerText );
